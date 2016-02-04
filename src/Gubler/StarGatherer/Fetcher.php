@@ -42,7 +42,7 @@ class Fetcher
 
         while ($emptyResponse === false) {
             // set URL and other appropriate options
-            curl_setopt($ch, CURLOPT_URL, self::GITHUB_API_URL.'/users/'.$this->githubUser.'/starred?page='.$page);
+            curl_setopt($ch, CURLOPT_URL, self::GITHUB_API_URL.'users/'.$this->githubUser.'/starred?page='.$page);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_USERAGENT, $this->githubUser);
 
@@ -56,6 +56,7 @@ class Fetcher
             } else {
                 $data[] = $response;
             }
+
             $page++;
         }
         // close cURL resource, and free up system resources
